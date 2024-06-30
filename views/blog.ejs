@@ -1,0 +1,16 @@
+<%- include('partials/header.ejs') %>
+
+
+<div class="col p-4 d-flex flex-column position-static  blogs rounded" style="width: 50%; margin-left: 25%; margin-top: 8rem;">
+  <div class="blog-row-div">
+    <strong class="d-inline-block mb-2 text-primary-emphasis"><%= data.category %></strong>
+    <% if(check){ %>
+    <a href="/delete-post"><img src="images/trash3.svg" height="30px"></a>
+      <% }%>
+  </div>
+  <h3 class="mb-0"><%= data.title %></h3>
+  <div class="mb-1 text-body-secondary"><%= data.date[0] %> <%= data.date[1] %></div>
+  <p class="card-text mb-auto"><%= data.description %></p>
+</div>
+
+<%- include('partials/footer.ejs') %>

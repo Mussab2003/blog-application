@@ -1,0 +1,93 @@
+body{
+    background-color: #F0F0F0;
+}
+
+
+
+/* header.ejs */
+.navbar-button{
+  background-color: #007BFF;
+  border: 3px solid black;
+  padding: 5px;
+  border-radius: 5px;   
+}
+
+.navbar-heading{
+  font-family: "Playwrite ES Deco", cursive;
+  font-optical-sizing: auto;
+  font-weight: 900;
+  font-style: normal;
+  font-size: 30px;
+}
+
+.navbar-item-heading{
+  font-family: "Playwrite ES Deco", cursive;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 20px;
+}
+
+
+/* index.ejs */
+.featured-link, .blog-link{
+  color: #1A1A80;
+  font-weight: 500;
+}
+
+.featured-link:hover{
+color: white;
+}
+
+.blog-link:hover{
+  color: grey;
+}
+
+.mx-7{
+  margin-left: 5rem;
+  margin-right: 5rem;
+}
+
+.blogs{
+  background-color: #F5F5DC;
+  border: 2px solid black;
+}
+
+.featured-heading{
+  font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+  font-weight: bold;
+  font-style: normal;
+}
+
+.featured-topic{
+  font-size: 25px;
+}
+
+.blog-heading{
+  font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+}
+
+/* createBlog.ejs */
+.form-container{
+  background-color: #f8f8f8;
+}
+
+.form-heading{
+  margin-bottom: 20px;
+  font-family: "Playwrite NG Modern", cursive;
+  font-optical-sizing: auto;
+  font-weight: bold;
+  font-style: normal;
+  font-size: 50px;
+}
+
+
+/* blog.ejs */
+.blog-row-div{
+  display: flex;
+  justify-content: space-between;
+}

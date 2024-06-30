@@ -1,0 +1,27 @@
+<%- include('partials/header.ejs') %>
+
+<!-- Featured Blog -->
+<div class="p-4 p-md-5 mb-4 mx-7 my-3 rounded text-body-emphasis featured-blog" style="background-color: #B0C4DE;">
+    <div class="col-lg-6 px-0">
+      <strong class="d-inline-block mb-2 text-primary-emphasis featured-topic">Technology</strong>
+      <h1 class="display-4 fst-italic featured-heading">Don’t Just LeetCode; Follow the Coding Patterns Instead</h1>
+      <p class="lead my-3">No one likes spending that much time preparing for the coding interviews. So is there a smarter solution?</p>
+      <p class="lead mb-0"><a href="/featured-blog" >Continue reading...</a></p>
+    </div>
+  </div>
+
+  <!-- Blogs -->
+  <div class = "container">
+  <% for (let i=0; i<data.length; i++) {%>
+  <div class="col p-4 d-flex flex-column position-static my-4 blogs rounded blog-div" data-value="<%= data[i].id %>">
+    <strong class="d-inline-block mb-2 text-primary-emphasis"><%= data[i].category %></strong>
+    <h3 class="mb-0 blog-heading"><%= data[i].title %></h3>
+    <div class="mb-1 text-body- secondary"><%= data[i].date[0] %> <%= data[i].date[1] %></div>
+    <p class="card-text mb-auto"><%= data[i].description.slice(0,200) %></p>
+    <a  href="/blog">
+      Continue reading
+    </a>
+  </div>
+  <% }%>
+</div>
+<%- include('partials/footer.ejs') %>

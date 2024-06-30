@@ -1,0 +1,25 @@
+{
+  "name": "blog-application",
+  "version": "1.0.0",
+  "description": "A single-user blog application. Created using HTML, CSS, JS for front-end and Node.Js and Express.Js for back-end",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mussab2003/blog-application.git"
+  },
+  "author": "Mussab",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mussab2003/blog-application/issues"
+  },
+  "homepage": "https://github.com/Mussab2003/blog-application#readme",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "ejs": "^3.1.10",
+    "express": "^4.19.2"
+  }
+}

@@ -1,0 +1,30 @@
+<%- include('partials/header.ejs') %>
+
+<div class="container my-5 form-container rounded p-4">
+<form action="/submit" method="post">
+    <h2 class="form-heading">Journey Through Words</h2>
+    <hr>
+    <div class="mb-3">
+        <label for="category" class="form-label">Category</label>
+        <select class="form-select" aria-label="Default select example" name="category" id="category" required>
+            <option selected value="">Select a category</option>
+            <% for(var i=0; i<category.length; i++){%>
+             <option value=<%= category[i]%>><%= category[i]%> </option>
+            <% } %>
+          </select>
+    </div>
+    <div class="mb-3">
+      <label for="title" class="form-label">Blog Title</label>
+      <input type="text" class="form-control" name="title" id="title" required>
+      <div id="title-help" class="form-text">Max 50 alphabets. x alphabets remaining...</div>
+    </div>
+    <div class="mb-3">
+        <label for="description" class="form-label">Blog Description</label>
+        <textarea class="form-control" aria-label="With textarea" name="description" id="description" rows="10" required></textarea>
+        <div id="title-help" class="form-text">Min 100 alphabets. x alphabets remaining...</div>
+    </div>
+    <button type="submit" value ="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+
+<%- include('partials/footer.ejs') %>
