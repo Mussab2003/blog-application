@@ -4,7 +4,7 @@ import bodyParser from "body-parser";
 const app = express();
 const port = 3333;
 var id;
-var object;
+
 
 var Category = [
   "Travel",
@@ -120,40 +120,55 @@ app.post("/submit", (req, res) => {
   var m = new Date();
   var date = [month[m.getMonth()], m.getDate()];
   var blogItem = new BlogModel(category, date, title, description);
+  console.log("This is the id: " + blogItem.id);
   blogObject.push(blogItem);
   res.redirect("/");
 });
 
 app.get("/all-blogs", (req, res) => {
   res.render("allBlogs.ejs", { blogs: blogObject });
+  //console.log(blogObject);
 });
 
 app.post("/id", (req, res) => {
-  id = req.body.value;
+  id = req.body.id;
   console.log(id);
+  //console.log(blogObject[id]);
+  res.status(200).json({ message: 'ID received successfully' });
 });
 
 app.get("/blog", (req, res) => {
   var boolean = true;
-  object = blogObject[id];
-  console.log(object);
+  var object = blogObject.find((item) => item.id == id);
   res.render("blog.ejs", { data: object , check : boolean});
 });
 
 app.get("/delete-post", (req, res) => {
-  blogObject.splice(id, id);
+  var index;
+  for(let i=0; i<blogObject.length; i++){
+    if(blogObject[i].id == id){
+      index = i;
+    }
+  }
+  if(index > 0){
+    blogObject.splice(index, 1);
+  }
+  else{
+    blogObject.shift();
+  }
   res.redirect("/");
+  console.log(blogObject);
 });
 
 app.get("/featured-blog", (req, res) => {
   var boolean = false;
-  var object = new BlogModel(
+  var object_featured = new BlogModel(
     Category[4],
     ["May", 31],
     "Don’t Just LeetCode; Follow the Coding Patterns Instead",
     "Coding Interviews are getting harder. To prepare for coding interviews, you will need weeks, if not months of preparation. No one likes spending that much time preparing for the coding interviews. So is there a smarter solution? First, let’s look at the problem. Anyone preparing for coding interviews definitely knows LeetCode. It is probably the biggest online repository for coding interview questions. Let’s take a look at what problems people face when using LeetCode. Problems with LeetCode. There are around 3k problems in LeetCode. The biggest challenge with LeetCode is its lack of organization; it has a huge set of coding problems, and you are not sure where to start or what to focus on. One wonders, is there an adequate number of questions one should go through to consider themselves prepared for the coding interview? I would love to see a streamlined process that guides me and teaches me enough algorithmic techniques to feel confident for the interview. As a lazy person myself, I wouldn’t like to go through even 500 questions. The Solution One technique that people often follow is to solve questions related to the same data structure; for example, focusing on questions related to Arrays, then LinkedList, HashMap, Heap, Tree, Graph, or Trie, etc. Although this does provide some organization, it still lacks coherence. For example, many questions can be solved using HashMap but still require different algorithmic techniques. I would love to see question sets that follow not only the same data structure but also similar algorithmic techniques. The best thing I came across was the problem-solving patterns like Sliding Window, Fast and Slow Pointers, Two Pointers, Two Heaps, Topological Sort, etc. Following these patterns helped me nurture my ability to ‘map a new problem to an already known problem’. This not only made this whole coding-interview-preparation process fun but also a lot more organized. Coding patterns enhance our “ability to map a new problem to an already known problem.” Coding Patterns I have gathered around 20 of these coding problem patterns that I believe can help anyone learn these beautiful algorithmic techniques and make a real difference in the coding interviews. The idea behind these patterns is that once you’re familiar with a pattern, you’ll be able to solve dozens of problems with it. For a detailed discussion of these patterns and related problems with solutions, take a look at Grokking the Coding Interview."
   );
-  res.render('blog.ejs', {data: object, check:boolean});
+  res.render('blog.ejs', {data: object_featured, check:boolean});
 });
 
 app.listen(port, () => {

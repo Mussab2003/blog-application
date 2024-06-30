@@ -2,12 +2,12 @@
 
 <div class = "container">
     <% for (let i=0; i<blogs.length; i++) {%>
-    <div class="col p-4 d-flex flex-column position-static my-4 blogs rounded blog-div" data-value="<%= blogs[i].id %>">
+    <div class="col p-4 d-flex flex-column position-static my-4 blogs rounded blog-div"">
       <strong class="d-inline-block mb-2 text-primary-emphasis"><%= blogs[i].category %></strong>
       <h3 class="mb-0"><%= blogs[i].title %></h3>
       <div class="mb-1 text-body-secondary"><%= blogs[i].date[0] %> <%= blogs[i].date[1] %></div>
       <p class="card-text mb-auto"><%= blogs[i].description.slice(0,200)%>...</p>
-      <a href="/blog">
+      <a href="#" class="blog-link-send-data" data-id="<%= blogs[i].id %>">
         Continue reading
       </a>
     </div>
