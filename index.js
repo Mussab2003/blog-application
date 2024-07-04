@@ -1,10 +1,11 @@
 import express from "express";
 import bodyParser from "body-parser";
+import 'dotenv/config'
 
 const app = express();
-const port = 33333;
+const port = process.env.port;
+console.log(port);
 var id;
-
 
 var Category = [
   "Travel",
