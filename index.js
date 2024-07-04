@@ -3,7 +3,7 @@ import bodyParser from "body-parser";
 import 'dotenv/config'
 
 const app = express();
-const port = process.env.PORT;
+const port = process.env.PORT || 3333;
 console.log(port);
 var id;
 
